@@ -1,0 +1,108 @@
+<!-- start: Main Menu -->
+      <div class="sidebar ">
+
+        <div class="sidebar-collapse">
+          <div class="sidebar-header t-center">
+                        <span><img class="text-logo" src="__ROOT__/Public/back/assets/img/logo.png"></span>
+                    </div>
+          <div class="sidebar-menu">
+            <ul class="nav nav-sidebar">
+              <li><a href="__ROOT__/admin.php/index/show"><i class="fa fa-laptop"></i><span class="text">控制面板</span></a></li>
+
+              <if condition="$Think.session.purview.basic_set eq 1">
+                <li>
+                <a href="#"><i class="fa fa-file-text"></i><span class="text">基本数据</span> <span class="fa fa-angle-down pull-right"></span></a>
+                <ul class="nav sub">
+                  <li><a href="__ROOT__/admin.php/basic"><i class="fa fa-cogs"></i><span class="text">基本配置</span></a></li>
+                  <li><a href="__ROOT__/admin.php/banner"><i class="fa fa-retweet"></i><span class="text">banner切换</span></a></li>
+                  <li><a href="__ROOT__/admin.php/notice"><i class="fa fa-volume-down"></i><span class="text">公告信息</span></a></li>
+
+                </ul>
+               </li>
+              </if>
+
+
+              <if condition="$Think.session.purview.company_set eq 1">
+               <li>
+                <a href="#" ><i class="fa fa-list-alt"></i><span class="text">公司信息</span> <span class="fa fa-angle-down pull-right"></span></a>
+                <ul class="nav sub">
+                  <li><a href="__ROOT__/admin.php/introduction"><i class="fa fa-book"></i><span class="text">公司简介</span></a></li>
+                  <li ><a href="__ROOT__/admin.php/culture"><i class="fa  fa-flag"></i><span class="text">企业文化</span></a></li>
+                  <li><a href="__ROOT__/admin.php/development"><i class="fa fa-calendar-o"></i><span class="text">企业历程</span></a></li>
+                  <li><a href="__ROOT__/admin.php/institution"><i class="fa fa-users"></i><span class="text">企业阵容</span></a></li>
+                  <li><a href="__ROOT__/admin.php/honor"><i class="fa fa-graduation-cap"></i><span class="text">企业荣誉</span></a></li>
+
+
+                </ul>
+               </li>
+              </if>
+
+              <if condition="$Think.session.purview.business_set eq 1">
+              <li><a href="__ROOT__/admin.php/business"><i class="fa fa-folder-open"></i><span class="text">业务管理</span> </a></li>
+              </if>
+
+              <if condition="$Think.session.purview.case_set eq 1">
+                 <li><a href="__ROOT__/admin.php/category1"><i class="fa fa-bookmark"></i><span class="text">一级类目管理</span> </a></li>
+              </if>
+              <if condition="$Think.session.purview.case_set eq 1">
+                  <li><a href="__ROOT__/admin.php/category2"><i class="fa fa-bookmark"></i><span class="text">二级类目管理</span> </a></li>
+               </if>
+
+              <if condition="$Think.session.purview.news_set eq 1">
+                 <li><a href="__ROOT__/admin.php/news"><i class="fa fa-bell"></i><span class="text">新闻动态管理</span> </a></li>
+              </if>
+
+              <if condition="$Think.session.purview.product_type_set eq 1">
+                 <li><a href="__ROOT__/admin.php/hotservice"><i class="fa fa-bars"></i><span class="text">推荐服务管理</span> </a></li>
+              </if>
+              <if condition="$Think.session.purview.product_type_set eq 1">
+                  <li><a href="__ROOT__/admin.php/ad"><i class="fa fa-bars"></i><span class="text">广告图片管理</span> </a></li>
+               </if>
+               <if condition="$Think.session.purview.product_type_set eq 1">
+                  <li><a href="__ROOT__/admin.php/service"><i class="fa fa-bars"></i><span class="text">服务管理</span> </a></li>
+               </if>
+
+               <if condition="$Think.session.purview.product_set eq 1">
+                  <li><a href="__ROOT__/admin.php/product"><i class="fa fa-pencil"></i><span class="text">产品管理</span> </a></li>
+               </if>
+
+               <if condition="$Think.session.purview.question_set eq 1">
+                  <li><a href="__ROOT__/admin.php/question"><i class="fa fa-wrench"></i><span class="text">技术课堂管理</span> </a></li>
+               </if>
+
+               <if condition="$Think.session.purview.recruit_set eq 1">
+                  <li><a href="__ROOT__/admin.php/recruit"><i class="fa fa-thumbs-up"></i><span class="text">人才招聘管理</span> </a></li>
+               </if>
+
+               <if condition="$Think.session.purview.team_set eq 1">
+                  <li><a href="__ROOT__/admin.php/team"><i class="fa fa-user"></i><span class="text">团队成员管理</span> </a></li>
+               </if>
+
+               <if condition="$Think.session.purview.message_set eq 1">
+                  <li><a href="__ROOT__/admin.php/message"><i class="fa fa-comments"></i><span class="text">留言板管理</span> </a></li>
+               </if>
+
+               <if condition="$Think.session.purview.link_set eq 1">
+                  <li><a href="__ROOT__/admin.php/link"><i class="fa fa-chain-broken"></i><span class="text">友情链接管理</span> </a></li>
+               </if>
+
+               <if condition="$Think.session.purview.manager_set eq 1">
+                  <li><a href="__ROOT__/admin.php/manager"><i class="fa fa-database" aria-hidden="true"></i><span class="text">管理员管理</span> </a></li>
+               </if>
+
+            </ul>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+
+          <div class="sidebar-brand">
+            重庆圣灵科技
+          </div>
+
+          <div class="copyright text-center">
+            <small>版权所有：<a href="http://www.cqslkj.cn/" title="重庆圣灵科技信息有限公司" target="_blank">重庆圣灵科技信息有限公司</a></small>
+          </div>
+        </div>
+
+      </div>
+      <!-- end: Main Menu -->

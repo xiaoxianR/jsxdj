@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wx-index__footer {
+    height: 50px;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -o-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
+.wx-index__footer .box {
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.wx-index__footer .box:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #e8ebf0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    z-index: 1;
+}
+
+.wx-index__footer .box:after {
+    content: "";
+    width: 100%;
+    height: constant(safe-area-inset-bottom);
+    height: env(safe-area-inset-bottom);
+    background: #fff;
+    display: block;
+}
+
+.wx-index__footer .box ul {
+    height: 50px;
+    bottom: constant(safe-area-inset-bottom) !important;
+    bottom: env(safe-area-inset-bottom) !important;
+    background: #fff;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.wx-index__footer .box ul li {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.wx-index__footer .icon {
+    position: relative;
+    height: 25px;
+    background: #fff;
+    padding: 5px 0 0;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.wx-index__footer .spot {
+    width: 7px;
+    height: 7px;
+    background: #e6454a;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: 5px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    display: none;
+}
+
+.wx-index__footer--title {
+    font-size: 10px;
+    color: #848c99;
+    height: 18px;
+    line-height: 18px;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    font-family: "PingFangSC-Regular", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Heiti SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.wx-index__footer .active .wx-index__footer--title {
+    color: #e6454a;
+    font-weight: bold;
+}
+
+.wx-index__footer--ishover {
+    display: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.wx-index__footer--shadow {
+    display: none;
+    width: 54px;
+    height: 54px;
+    background: #fff;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 19px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.wx-index__icon {
+    display: block;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: 172px 50px;
+    width: 25px;
+    height: 25px;
+}
+
+.wx-index__icon--home {
+    background-position: 0 0;
+}
+
+.wx-index__icon--nearby {
+    background-position: -25px 0;
+}
+
+.wx-index__icon--publish {
+    background-position: -50px 0;
+}
+
+.wx-index__icon--message {
+    background-position: -75px 0;
+}
+
+.wx-index__icon--user {
+    background-position: -100px 0;
+}
+
+.wx-index__icon--publish--big {
+    background-position: -125px 0;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.wx-index__footer--big .wx-index__icon {
+    width: 42px;
+    height: 42px;
+    background-size: 258px 84px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    z-index: 2;
+}
+
+.wx-index__footer--big .wx-index__icon--home {
+    background-position: 0 0;
+}
+
+.wx-index__footer--big .wx-index__icon--nearby {
+    background-position: -42px 0;
+}
+
+.wx-index__footer--big .wx-index__icon--publish {
+    background-position: -84px 0;
+}
+
+.wx-index__footer--big .wx-index__icon--message {
+    background-position: -126px 0;
+}
+
+.wx-index__footer--big .wx-index__icon--user {
+    background-position: -168px 0;
+}
+
+.wx-index__footer--big .wx-index__icon--publish--big {
+    width: 48px;
+    height: 48px;
+    background-position: -210px 0;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.wx-index__footer--big .spot {
+    margin-left: 15px;
+}
+
+.active .wx-index__icon--home {
+    background-position: 0 100%;
+}
+
+.active .wx-index__icon--nearby {
+    background-position: -25px 100%;
+}
+
+.active .wx-index__icon--publish {
+    background-position: -50px 100%;
+}
+
+.active .wx-index__icon--message {
+    background-position: -75px 100%;
+}
+
+.active .wx-index__icon--user {
+    background-position: -100px 100%;
+}
+
+.active .wx-index__icon--publish--big {
+    background-position: -125px 100%;
+}
+
+.wx-index__footer--big .active .wx-index__icon--home {
+    background-position: 0 100%;
+}
+
+.wx-index__footer--big .active .wx-index__icon--nearby {
+    background-position: -42px 100%;
+}
+
+.wx-index__footer--big .active .wx-index__icon--publish {
+    background-position: -84px 100%;
+}
+
+.wx-index__footer--big .active .wx-index__icon--message {
+    background-position: -126px 100%;
+}
+
+.wx-index__footer--big .active .wx-index__icon--user {
+    background-position: -168px 100%;
+}
+
+.wx-index__footer--big .active .wx-index__icon--publish--big {
+    background-position: -210px 100%;
+}
+
+
+/* 首页新增样式 */
+.hot-service-pannel {
+    margin-bottom: 5px;
+}
+.wx-index__nav .nav__swipe{
+    height: auto;
+    padding-bottom: 17px;
+}
+.cnxh_over .no-data{
+    display: none;
+    text-align: center;
+}

@@ -1,0 +1,30 @@
+<div class="hot-service-pannel wx-index__theme__list ">
+    <div class="wx-index__djservice__choicecon home-choicecon ">
+        <h5>
+            <span>精选服务</span>
+        </h5>
+    </div>
+    <div class="theme__body ">
+        <ul class="body__list ">
+            <volist name="pickServList" id="pickServ">
+                <li class="body__item " data-track=" ">
+                    <a class="list__item " data-id="612545 " href="">
+                        <div class="item__thumb ">
+                            <div class="thumb__img " style="background-image: url(&quot;{$pickServ.path}&quot;);
+                        opacity: 1; "></div>
+                        </div>
+                        <div class="item__entry ">
+                            <div class="entry__head ">
+                                <div class="entry__title ">{$pickServ.title}</div>
+                            </div>
+                            <div class="entry__desc ">{$pickServ.summary}</div>
+                            <div class="entry__price ">
+                                <span class="real__num ">￥{$pickServ.price}<if condition="$pickServ.unit">／{$pickServ.unit}</if></span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </div>
+</div>

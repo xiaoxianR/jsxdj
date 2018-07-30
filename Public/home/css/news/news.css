@@ -1,0 +1,20 @@
+.news-pannel{
+    margin: 17px 8px 0;
+    border-top: 2px solid #f60;
+    background: #fff;
+    padding: 10px;
+}
+.news-pannel .news-title{
+    font-size: 16px;
+    color: #f60;
+}
+.news-pannel .news-content{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #333;
+    word-break: break-all;
+}
+.news-pannel .news-content img{
+    max-width: 100%;
+    height: auto !important;
+}

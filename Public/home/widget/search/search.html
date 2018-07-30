@@ -1,0 +1,32 @@
+<div class="main-con">
+
+    <div class="head-wrap">
+        <div class="serach-wrap">
+            <div class="input-wrap">
+                <div class="input-box">
+                    <i class="search__icon__search"></i>
+                    <form action="">
+                        <input type="search" id="searchTextBox" placeholder="搜索你想要的服务" autocomplete="off">
+                    </form>
+                    <div class="clear">
+                        <i class="search__icon__clear"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="button">取消</div>
+        </div>
+    </div>
+
+    <div class="tag-wrap">
+        <div id="tag-list-wrap">
+            <div class="tag-title" v-if="title">
+                <span>历史搜索</span>
+                <i class="search__icon__delete"></i>
+            </div>
+            <div class="tag-list">
+                <div class="tag-box">清洁</div>
+                <p class="empty-text">暂无搜索历史</p>
+            </div>
+        </div>
+    </div>
+</div>

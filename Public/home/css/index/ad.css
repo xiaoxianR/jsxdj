@@ -1,0 +1,17 @@
+.ad-pannel{
+    width: 100%;
+}
+.ad-pannel a{
+    display: block;
+    width: 47.5%;
+    height: 60px;
+    margin: 0 1.5% 1.5%;
+}
+.ad-pannel a img{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+a.no-margin-left{
+    margin-left: 0;
+}

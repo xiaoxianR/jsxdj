@@ -1,0 +1,36 @@
+<div class="wx-index__nav">
+    <div class="nav__swipe">
+        <div class="nav">
+            <ul class="page__list">
+                <!-- 一级类目 -->
+                <volist name="category1List" id="category1">
+                    <li class="page__item">
+                        <a class="item__href" href="__ROOT__/categoryinfo/{$category1.id}">
+                            <div class=" item__avatar ">
+                                <div class="active hide "></div>
+                                <img class="avatar__img " src="{$category1.path}">
+                                <div class="item_dot "></div>
+                            </div>
+                            <div class="item__name ">{$category1.category1_name}</div>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+            <ul class="page__list">
+                <!-- 二级类目 -->
+                <volist name="category2List" id="category2">
+                        <li class="page__item small_icon ">
+                            <a class="item__href" href="">
+                                <div class=" item__avatar ">
+                                    <div class="active hide "></div>
+                                    <img class="avatar__img " src="{$category2.path}">
+                                    <div class="item_dot "></div>
+                                </div>
+                                <div class="item__name ">{$category2.category2_name}</div>
+                            </a>
+                        </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>

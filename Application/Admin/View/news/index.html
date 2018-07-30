@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>圣灵科技系统管理后台</title>
+    <link rel="shortcut icon" href="__ROOT__/Public/back/assets/ico/favicon.ico" type="image/x-icon" />
+    <!-- CSS  -->
+    <link href="__ROOT__/Public/back/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__ROOT__/Public/back/assets/css/style.min.css" rel="stylesheet" />
+    <link href="__ROOT__/Public/back/css/common.css" rel="stylesheet" />
+    <link href="__ROOT__/Public/back/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function addcheckinput() {
+            //标题
+            var title = document.getElementById("title").value;
+            if (title != null && title == '') {
+                alert("请输入标题!");
+                document.getElementById("title").focus();
+                return false;
+            }
+            var summary = document.getElementById("summary").value;
+            if (summary != null && summary == '') {
+                alert("请输入简介!");
+                document.getElementById("summary").focus();
+                return false;
+            }
+            //内容
+            var content = document.getElementById("content").value;
+            if (content != null && content == '') {
+                alert("请输入新闻内容!");
+                document.getElementById("content").focus();
+                return false;
+            }
+
+            //添加图片
+            var addpicture = document.getElementById("addpicture").value;
+            //未选择图片
+            if (addpicture != null && addpicture == '') {
+                alert("请选择图标!");
+                document.getElementById("addpicture").focus();
+                return false;
+            }
+
+            //判断选择的图片格式是否正确
+            if (addpicture != '') {
+                var a = addpicture.lastIndexOf(".");
+                var str = addpicture.substring(a + 1);
+                var imgArr = ["jpg", "jpeg", "gif", "bmp", "JPG", "JPEG", "GIF", "BMP", "png", "PNG"];
+                if ($.inArray(str, imgArr) == '-1') {
+                    var obj = document.getElementById("addpicture");
+                    obj.select();
+                    alert("请选择正确的图片格式");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function editcheckinput() {
+            var title = document.getElementById("title").value;
+            if (title != null && title == '') {
+                alert("请输入标题!");
+                document.getElementById("title").focus();
+                return false;
+            }
+            var summary = document.getElementById("summary").value;
+            if (summary != null && summary == '') {
+                alert("请输入简介!");
+                document.getElementById("summary").focus();
+                return false;
+            }
+
+            //修改图片
+            var editpicture = document.getElementById("editpicture").value;
+            //判断选择的图片格式是否正确
+            if (editpicture != '') {
+                var a = editpicture.lastIndexOf(".");
+                var str = editpicture.substring(a + 1);
+
+                var imgArr = ["jpg", "jpeg", "gif", "bmp", "JPG", "JPEG", "GIF", "BMP", "png", "PNG"];
+                if ($.inArray(str, imgArr) == '-1') {
+                    var obj = document.getElementById("editpicture");
+                    obj.select();
+                    alert("请选择正确的图片格式");
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- start: Header -->
+    <include file="./Public/back/common/header.html" />
+    <div class="container-fluid content">
+        <div class="row">
+            <!--menu开始-->
+            <include file="./Public/back/common/menu.html" />
+            <!-- start: Content -->
+            <div class="main ">
+                <div class="row">
+                    <if condition="$editInfo neq null">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2>
+                                        <i class="fa fa-indent red"></i>
+                                        <strong>修改新闻动态</strong>
+                                    </h2>
+                                </div>
+                                <div class="panel-body">
+                                    <form action="__ROOT__/admin.php/news/update/{$editInfo.id}" method="post" class="form-horizontal " enctype="multipart/form-data"
+                                        onsubmit="return editcheckinput()">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="text-input">标题：</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="title" name="title" value="{$editInfo.title}" maxlength="20" class="form-control" placeholder="请输入不超过20个文字...">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="text-input">简介：</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="summary" name="summary" value="{$editInfo.summary}" maxlength="20" class="form-control" placeholder="请输入不超过20个文字...">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="textarea-input">内容：</label>
+                                            <div class="col-md-9">
+                                                <textarea id="content" name="content" rows="9" placeholder="建议输入不超过200个文字..." style="height:200px;">{$editInfo.content}</textarea>
+                                                <!--UEditor-->
+                                                <!-- 配置文件 -->
+                                                <script type="text/javascript" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+                                                <!-- 编辑器源码文件 -->
+                                                <script type="text/javascript" src="__ROOT__/Public/ueditor/ueditor.all.js"></script>
+                                                <!-- 实例化编辑器 -->
+                                                <script type="text/javascript">
+                                                    var ue = UE.getEditor('content');
+                                                </script>
+                                                <!--UEditor-->
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="textarea-input">新闻类别：</label>
+                                            <div class="col-md-9">
+                                                    <select name="type">
+                                                        <option value="1" 
+                                                            <if condition="$editInfo['type'] eq 1">selected</if>
+                                                        >家政妙招</option>
+                                                        <option value="2" 
+                                                            <if condition="$editInfo['type'] eq 2">selected</if>
+                                                        >公司新闻</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                图标：{$editInfo.path}
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="file-input">修改图标</label>
+                                            <div class="col-md-9">
+                                                <input type="file" id="editpicture" name="picture">
+                                            </div>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <button type="submit" class="btn btn-sm btn-success">
+                                                <i class="fa fa-dot-circle-o"></i> 保存修改</button>
+                                            <button type="reset" class="btn btn-sm btn-danger">
+                                                <i class="fa  fa-cloud-upload"></i> 重新编辑</button>
+                                        </div>
+                                        <br>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <else/>
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2>
+                                        <i class="fa fa-indent red"></i>
+                                        <strong>添加新闻动态</strong>
+                                    </h2>
+                                </div>
+                                <div class="panel-body">
+                                    <form action="__ROOT__/admin.php/news/add" method="post" class="form-horizontal " enctype="multipart/form-data" onsubmit="return addcheckinput()">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="text-input">标题：</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="title" name="title" maxlength="20" class="form-control" placeholder="请输入不超过20个文字...">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="text-input">简介：</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="summary" name="summary" maxlength="20" class="form-control" placeholder="请输入不超过20个文字...">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="textarea-input">内容：</label>
+                                            <div class="col-md-9">
+                                                <textarea id="content" name="content" rows="9" placeholder="建议输入不超过200个文字..." style="height:200px;"></textarea>
+                                                <!--UEditor-->
+                                                <!-- 配置文件 -->
+                                                <script type="text/javascript" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+                                                <!-- 编辑器源码文件 -->
+                                                <script type="text/javascript" src="__ROOT__/Public/ueditor/ueditor.all.js"></script>
+                                                <!-- 实例化编辑器 -->
+                                                <script type="text/javascript">
+                                                    var ue = UE.getEditor('content');
+                                                </script>
+                                                <!--UEditor-->
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="textarea-input">新闻类别：</label>
+                                            <div class="col-md-9">
+                                                <select name="type">
+                                                    <option value="1">家政妙招</option>
+                                                    <option value="2">公司新闻</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="file-input">图标：</label>
+                                            <div class="col-md-9">
+                                                <input type="file" id="addpicture" name="picture">
+                                            </div>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <button type="submit" class="btn btn-sm btn-success">
+                                                <i class="fa fa-dot-circle-o"></i> 保存</button>
+                                            <button type="reset" class="btn btn-sm btn-danger">
+                                                <i class="fa  fa-cloud-upload"></i> 重新编辑</button>
+                                        </div>
+                                        <br>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </if>
+                    <!-- 数据列表 -->
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>
+                                    <i class="fa fa-sitemap red"></i>
+                                    <strong>新闻动态</strong>
+                                </h2>
+                            </div>
+                            <table width="100%" border="1" style="border:#FFF; border-top:none; margin:auto; ">
+                                <tr style="background-color:#e8e8e8">
+                                    <th scope="col">标题</th>
+                                    <th scope="col">类别</th>
+                                    <th scope="col">修改时间</th>
+                                    <th scope="col">修改</th>
+                                    <th scope="col">删除</th>
+                                </tr>
+                                <volist name="infoList" id="info">
+                                    <if condition="$i%2 eq 0">
+                                        <tr style="background-color:#e9f6ff;">
+                                            <td>{$info.title}</td>
+                                            <td>
+                                                <if condition="$info['type'] eq 1">家政妙招
+                                                <elseif condition="$info['type'] eq 2" /> 公司新闻
+                                                </if>
+                                            </td>
+                                            <td>{$info.update_time}</td>
+                                            <td>
+                                                <a href="__ROOT__/admin.php/news/{$info.id}">点击修改</a>
+                                            </td>
+                                            <td>
+                                                <a href="__ROOT__/admin.php/news/delete/{$info.id}">点击删除</a>
+                                            </td>
+                                        </tr>
+                                        <else/>
+                                        <tr style="background-color:#f5f5f5;">
+                                            <td>{$info.title}</td>
+                                            <td>
+                                                <if condition="$info['type'] eq 1">家政妙招
+                                                <elseif condition="$info['type'] eq 2" /> 公司新闻
+                                                </if>
+                                            </td>
+                                            <td>{$info.update_time}</td>
+                                            <td>
+                                                <a href="__ROOT__/admin.php/news/{$info.id}">点击修改</a>
+                                            </td>
+                                            <td>
+                                                <a href="__ROOT__/admin.php/news/delete/{$info.id}">点击删除</a>
+                                            </td>
+                                        </tr>
+                                    </if>
+                                </volist>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/.col-->
+                </div>
+                <!--/.row-->
+                <!--/row-->
+            </div>
+            <!-- end: Content -->
+            <br>
+            <br>
+            <br>
+        </div>
+        <!--/container-->
+        <!-- start: JavaScript-->
+        <script src="__ROOT__/Public/back/assets/js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript">
+            window.jQuery || document.write("<script src='__ROOT__/Public/back/assets/js/jquery-2.1.1.min.js'>" + "<" +
+                "/script>");
+        </script>
+        <!-- theme scripts -->
+        <script src="__ROOT__/Public/back/assets/js/SmoothScroll.js"></script>
+        <script src="__ROOT__/Public/back/assets/js/jquery.mmenu.min.js"></script>
+        <script src="__ROOT__/Public/back/assets/js/core.min.js"></script>
+        <!-- end: JavaScript-->
+        <script type="text/javascript">
+            $(document).ready(function () {　　
+                $("#edui1_bottombar").hide();
+            });
+        </script>
+</body>
+</html>

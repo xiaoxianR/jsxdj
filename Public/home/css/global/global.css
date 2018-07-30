@@ -1,0 +1,37 @@
+/* 浮动 */
+.fl{
+    float: left;
+}
+/* 清除浮动 */
+.clearfix{
+    *zoom: 1;
+}
+.clearfix:before, .clearfix:after{
+    content: " ";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+/* 单行显示 */
+.oneline{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/* 底部边框 */
+.bottom-border:before{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #e8ebf0;
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+

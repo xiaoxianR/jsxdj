@@ -1,0 +1,24 @@
+/*表格样式*/
+.col-md-6 tr{
+  height: 50px;
+}
+.col-md-3{
+	width: 8%;
+  padding-left: 0;
+}
+.purview .col-md-3{
+  width: 10%;
+}
+.purview .control-label{
+  padding-top: 0;
+}
+.col-md-9 select{
+  width: 10%;
+}
+.pic-preview{
+  padding: 10px;
+}
+.pic-preview img{
+  width: 200px;
+  height: 100px;
+}

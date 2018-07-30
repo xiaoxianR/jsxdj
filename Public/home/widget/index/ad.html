@@ -1,0 +1,7 @@
+<div class="ad-pannel clearfix">
+    <volist name="hotServList" id="hotServ">
+        <a href="{$hotServ.link_url}" class="fl <if condition='($key % 2) eq 1'>no-margin-left</if>">
+            <img src="{$hotServ.path}" alt="推荐服务图片">
+        </a>
+    </volist>
+</div>

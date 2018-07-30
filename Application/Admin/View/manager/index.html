@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>圣灵科技系统管理后台</title>
+  <link rel="shortcut icon" href="__ROOT__/Public/back/assets/ico/favicon.ico" type="image/x-icon" />
+
+
+
+   <!-- CSS  -->
+  <link href="__ROOT__/Public/back/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="__ROOT__/Public/back/assets/css/style.min.css" rel="stylesheet" />
+  <link href="__ROOT__/Public/back/css/common.css" rel="stylesheet" />
+  <link href="__ROOT__/Public/back/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<script type="text/javascript">
+function addcheckinput(){
+   //alert("check");
+
+  //标题
+  var name = document.getElementById("name").value;
+  if(name !=  null && name == ''){
+      alert("请输入用户名!");
+      document.getElementById("name").focus();
+      return false;
+  }
+
+  //内容
+  var pwd = document.getElementById("pwd").value;
+  if(pwd !=  null && pwd == ''){
+      alert("请输入密码!");
+      document.getElementById("pwd").focus();
+      return false;
+  }
+
+
+
+
+
+
+  return true;
+}
+
+function editcheckinput(){
+
+
+}
+
+
+</script>
+
+</head>
+
+<body>
+	<!-- start: Header -->
+  <include file="./Public/back/common/header.html"/>
+  <!-- end: Header -->
+
+	<div class="container-fluid content">
+
+		<div class="row">
+
+			 <!--menu开始-->
+    <include file="./Public/back/common/menu.html"/>
+
+    <!--menu结束-->
+
+		<!-- start: Content -->
+		<div class="main ">
+			<div class="row">
+
+         <if condition="$editInfo neq null">
+          <div class="col-md-6">
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h2><i class="fa fa-indent red"></i><strong>修改管理员权限</strong></h2>
+			            </div>
+						<div class="panel-body">
+							<form action="__ROOT__/admin.php/manager/update/{$editInfo.id}" method="post"  class="form-horizontal " enctype="multipart/form-data" >
+
+
+                    <div class="form-group">
+                            <label class="col-md-3 control-label" for="text-input">用户名：</label>
+                            <div class="col-md-9">
+                                <input type="text" id="name" name="name " value="{$editInfo.name}" disabled="disabled"  maxlength="20" class="form-control" placeholder="请输入不超过20个文字...">
+                            </div>
+                    </div>
+                    <div class="form-group"><b>管理员权限：</b></div>
+
+                    <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">基本信息管理：</label>
+                        <input type="checkbox"  name="basic_set" value="1"
+                           <if condition="$editInfo.basic_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">公司信息管理：</label>
+                        <input type="checkbox"  name="company_set" value="1"
+                           <if condition="$editInfo.company_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">业务管理：</label>
+                        <input type="checkbox"  name="business_set" value="1"
+                           <if condition="$editInfo.business_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">案例管理：</label>
+                        <input type="checkbox"  name="case_set" value="1"
+                           <if condition="$editInfo.case_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">新闻动态管理：</label>
+                        <input type="checkbox"  name="news_set" value="1"
+                           <if condition="$editInfo.news_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">产品类型管理：</label>
+                        <input type="checkbox"  name="product_type_set" value="1"
+                           <if condition="$editInfo.product_type_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">产品管理：</label>
+                        <input type="checkbox"  name="product_set" value="1"
+                           <if condition="$editInfo.product_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">技术课堂管理：</label>
+                        <input type="checkbox"  name="question_set" value="1"
+                           <if condition="$editInfo.question_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">招聘信息管理：</label>
+                        <input type="checkbox"  name="recruit_set" value="1"
+                           <if condition="$editInfo.recruit_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">团队信息管理：</label>
+                        <input type="checkbox"  name="team_set" value="1"
+                           <if condition="$editInfo.team_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">留言板管理：</label>
+                        <input type="checkbox"  name="message_set" value="1"
+                           <if condition="$editInfo.message_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+                     <div style="margin-bottom:10px" class="purview"><label class="col-md-3 control-label" for="text-input">友情链接管理：</label>
+                        <input type="checkbox"  name="link_set" value="1"
+                           <if condition="$editInfo.link_set eq 1">checked="checked"</if>
+                        >
+                     </div>
+
+
+
+
+
+
+				            <div class="panel-footer">
+                          <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 保存修改</button>
+                          <button type="reset" class="btn btn-sm btn-danger"><i class="fa  fa-cloud-upload"></i> 重新编辑</button>
+                    </div>
+
+
+
+								<br>
+				            </form>
+						</div>
+
+			        </div>
+			    </div>
+
+          <else/>
+             <div class="col-md-6">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h2><i class="fa fa-indent red"></i><strong>添加管理员</strong></h2>
+                  </div>
+              <div class="panel-body">
+              <form action="__ROOT__/admin.php/manager/add" method="post"  class="form-horizontal " enctype="multipart/form-data" onsubmit="return addcheckinput()">
+
+
+                    <div class="form-group">
+                            <label class="col-md-3 control-label" for="text-input">用户名：</label>
+                            <div class="col-md-9">
+                                <input type="text" id="name" name="name"   maxlength="10" class="form-control" placeholder="请输入不超过10个文字...">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-md-3 control-label" for="text-input">密码：</label>
+                            <div class="col-md-9">
+                                <input type="text" id="pwd" name="pwd"   maxlength="10" class="form-control" placeholder="请输入不超过10个文字...">
+                            </div>
+                    </div>
+
+
+                    <div class="panel-footer">
+                          <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 保存</button>
+                          <button type="reset" class="btn btn-sm btn-danger"><i class="fa  fa-cloud-upload"></i> 重新编辑</button>
+                    </div>
+
+
+
+                <br>
+                    </form>
+            </div>
+
+              </div>
+          </div>
+
+
+
+
+           </if>
+
+
+			    <div class="col-md-6">
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h2><i class="fa fa-sitemap red"></i><strong>管理员信息</strong></h2>
+			            </div>
+                        <table width="100%" border="1" style="border:#FFF; border-top:none; margin:auto; ">
+                           <tr style="background-color:#e8e8e8">
+                                <th scope="col">姓名</th>
+                                <th scope="col">密码</th>
+                                <th scope="col">基本信息管理</th>
+                                <th scope="col">公司信息管理</th>
+                                <th scope="col">业务管理</th>
+                                <th scope="col">案例管理</th>
+                                <th scope="col">新闻动态管理</th>
+                                <th scope="col">产品类型管理</th>
+                                <th scope="col">产品管理</th>
+                                <th scope="col">技术课堂管理</th>
+                                <th scope="col">招聘信息管理</th>
+                                <th scope="col">团队信息管理</th>
+                                <th scope="col">留言板管理</th>
+                                <th scope="col">友情链接管理</th>
+
+                                <th scope="col">修改</th>
+                                <th scope="col">删除</th>
+                            </tr>
+                           <volist name="infoList" id="info">
+                              <if condition="$i%2 eq 0">
+                                 <tr style="background-color:#e9f6ff;">
+                                   <td>{$info.name}</td>
+                                   <td>{$info.pwd}</td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.basic_set}"
+                                          <if condition="$info.basic_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.company_set}"
+                                          <if condition="$info.company_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.business_set}"
+                                          <if condition="$info.business_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.case_set}"
+                                          <if condition="$info.case_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.news_set}"
+                                          <if condition="$info.news_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.product_type_set}"
+                                          <if condition="$info.product_type_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.product_set}"
+                                          <if condition="$info.product_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.question_set}"
+                                          <if condition="$info.question_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.recruit_set}"
+                                          <if condition="$info.recruit_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.team_set}"
+                                          <if condition="$info.team_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.message_set}"
+                                          <if condition="$info.message_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.link_set}"
+                                          <if condition="$info.link_set eq 1">checked="checked"</if>
+                                   ></td>
+
+                                   <td><a href="__ROOT__/admin.php/manager/{$info.manager_id}"><if condition="$info.manager_set neq 1">点击修改</if></a></td>
+                                   <td><a href="__ROOT__/admin.php/manager/delete/{$info.manager_id}"><if condition="$info.manager_set neq 1">点击删除</if></a></td>
+
+                                 </tr>
+                              <else/>
+                                 <tr style="background-color:#f5f5f5;">
+                                    <td>{$info.name}</td>
+                                   <td>{$info.pwd}</td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.basic_set}"
+                                          <if condition="$info.basic_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.company_set}"
+                                          <if condition="$info.company_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.business_set}"
+                                          <if condition="$info.business_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.case_set}"
+                                          <if condition="$info.case_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.news_set}"
+                                          <if condition="$info.news_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.product_type_set}"
+                                          <if condition="$info.product_type_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.product_set}"
+                                          <if condition="$info.product_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.question_set}"
+                                          <if condition="$info.question_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.recruit_set}"
+                                          <if condition="$info.recruit_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.team_set}"
+                                          <if condition="$info.team_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.message_set}"
+                                          <if condition="$info.message_set eq 1">checked="checked"</if>
+                                   ></td>
+                                   <td><input type="checkbox" disabled="disabled" value="{$info.link_set}"
+                                          <if condition="$info.link_set eq 1">checked="checked"</if>
+                                   ></td>
+
+                                  <td><a href="__ROOT__/admin.php/manager/{$info.manager_id}"><if condition="$info.manager_set neq 1">点击修改</if></a></td>
+                                   <td><a href="__ROOT__/admin.php/manager/delete/{$info.manager_id}"><if condition="$info.manager_set neq 1">点击删除</if></a></td>
+
+                                 </tr>
+
+                              </if>
+                           </volist>
+
+
+
+
+                        </table>
+
+			        </div>
+
+
+
+				</div><!--/.col-->
+			</div><!--/.row-->
+			<!--/row-->
+
+		</div>
+		<!-- end: Content -->
+		<br><br><br>
+
+
+
+
+	</div><!--/container-->
+
+
+
+	<!-- start: JavaScript-->
+	<script src="__ROOT__/Public/back/assets/js/jquery-2.1.1.min.js"></script>
+
+<script type="text/javascript">
+      window.jQuery || document.write("<script src='__ROOT__/Public/back/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+</script>
+
+
+
+  <!-- theme scripts -->
+  <script src="__ROOT__/Public/back/assets/js/SmoothScroll.js"></script>
+  <script src="__ROOT__/Public/back/assets/js/jquery.mmenu.min.js"></script>
+  <script src="__ROOT__/Public/back/assets/js/core.min.js"></script>
+
+	<!-- end: JavaScript-->
+
+</body>
+</html>

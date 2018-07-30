@@ -1,0 +1,40 @@
+<div class="news-pannel tab-wrapper">
+    <ul class="tab-menu clearfix">
+        <li class="fl active">家政妙招</li>
+        <li class="fl">公司新闻</li>
+    </ul>
+    
+    <div class="tab-content">
+        <div class="tab-item">
+            <volist name="housekeepTipList" id="tip">
+                <div class="news-item clearfix">
+                    <a href="__ROOT__/news/{$tip.id}">
+                        <div class="news-pic fl">
+                            <img src="{$tip.path}" alt="{$tip.title}">
+                        </div>
+                        <div class="news-info">
+                            <h3 class="item-title oneline">{$tip.title}</h3>
+                            <p class="summary">{$tip.summary}</p>
+                        </div>
+                    </a>
+                </div>
+            </volist>
+        </div>
+
+        <div class="tab-item">
+            <volist name="newsList" id="news">
+                <div class="news-item clearfix">
+                    <a href="__ROOT__/news/{$news.id}">
+                        <div class="news-pic fl">
+                            <img src="{$news.path}" alt="{$news.title}">
+                        </div>
+                        <div class="news-info">
+                            <h3 class="item-title oneline">{$news.title}</h3>
+                            <p class="summary">{$news.summary}</p>
+                        </div>
+                    </a>
+                </div>
+            </volist>
+        </div>
+    </div>
+</div>

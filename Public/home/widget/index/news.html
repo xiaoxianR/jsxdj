@@ -1,0 +1,18 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <volist name="newsList" id="news">
+            <div class="swiper-slide">
+                <a href="__ROOT__/news/{$news.id}">{$news.title}</a>
+            </div>
+        </volist>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: true, //可选选项，自动滑动
+        pagination: {
+        el: '.swiper-pagination',
+        }
+    })
+</script>

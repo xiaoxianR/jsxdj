@@ -1,0 +1,5 @@
+/ThinkPHP
+**/Runtime/**
+/ueditor/**
+**.log
+Public/upload/**

@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>圣灵科技系统管理后台</title>
+  <link rel="shortcut icon" href="__ROOT__/Public/back/assets/ico/favicon.ico" type="image/x-icon" />
+
+
+
+   <!-- CSS  -->
+  <link href="__ROOT__/Public/back/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="__ROOT__/Public/back/assets/css/style.min.css" rel="stylesheet" />
+  <link href="__ROOT__/Public/back/css/common.css" rel="stylesheet" />
+  <link href="__ROOT__/Public/back/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+  <script type="text/javascript">
+  //alert("check");
+function checkinput(){
+   //alert("check");
+
+  var title = document.getElementById("title").value;
+  if(title !=  null && title == ''){
+      alert("请输入标题!");
+      document.getElementById("title").focus();
+      return false;
+  }
+
+  var key_words = document.getElementById("key_words").value;
+  if(key_words !=  null && key_words == ''){
+      alert("请输入关键词!");
+      document.getElementById("key_words").focus();
+      return false;
+  }
+
+  var content = document.getElementById("content").value;
+  if(content !=  null && content == ''){
+      alert("请输入公司文化!");
+      document.getElementById("content").focus();
+      return false;
+  }
+
+
+
+  return true;
+
+
+
+}
+
+
+
+
+
+
+</script>
+
+<script type="text/javascript">
+function disp_confirm(obj)
+  {
+    var url=obj.getAttribute("class");
+    if (url == '') {
+      obj.setAttribute("class","opened");
+    }
+    else if (url == 'opened') {
+      obj.setAttribute("class","");
+    }
+
+  }
+</script>
+
+
+
+ </head>
+
+<body>
+	<!-- start: Header -->
+  <include file="./Public/back/common/header.html"/>
+  <!-- end: Header -->
+
+	<div class="container-fluid content">
+
+		<div class="row">
+
+			 <!--menu开始-->
+    <include file="./Public/back/common/menu.html"/>
+
+    <!--menu结束-->
+
+		<!-- start: Content -->
+		<div class="main ">
+			<div class="row">
+
+
+
+             <div class="col-md-6">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h2><i class="fa fa-indent red"></i><strong>企业阵容</strong></h2>
+                  </div>
+              <div class="panel-body">
+              <form action="__ROOT__/admin.php/institution/update/{$info.id}" method="post"  class="form-horizontal " enctype="multipart/form-data"
+              onsubmit="return checkinput()">
+
+
+                    <div class="form-group">
+                            <label class="col-md-3 control-label" for="text-input">标题：</label>
+                            <div class="col-md-9">
+                                <input type="text" id="title" name="title" value="{$info.title}"   maxlength="20" class="form-control" placeholder="请输入不超过20个文字...">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-md-3 control-label" for="text-input">关键词：</label>
+                            <div class="col-md-9">
+                                <input type="text" id="key_words" name="key_words" value="{$info.key_words}"   maxlength="20" class="form-control" placeholder="请输入不超过20个文字...">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-md-3 control-label" for="textarea-input">内容：</label>
+                            <div class="col-md-9">
+                                <textarea id="content" name="content"  rows="20"  placeholder="建议输入不超过200个文字..." style="height:200px;">{$info.content}</textarea>
+                                <!--UEditor-->
+                                   <!-- 配置文件 -->
+                                    <script type="text/javascript" src="__ROOT__/Public/ueditor/ueditor.config.js"></script>
+                                   <!-- 编辑器源码文件 -->
+                                    <script type="text/javascript" src="__ROOT__/Public/ueditor/ueditor.all.js"></script>
+                                   <!-- 实例化编辑器 -->
+                                     <script type="text/javascript">
+                                         var ue = UE.getEditor('content');
+                                     </script>
+                                <!--UEditor-->
+                            </div>
+                    </div>
+
+
+                    <div class="panel-footer">
+                          <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 修改保存</button>
+                          <button type="reset" class="btn btn-sm btn-danger"><i class="fa  fa-cloud-upload"></i> 重新编辑</button>
+                    </div>
+
+
+
+                <br>
+                    </form>
+            </div>
+
+              </div>
+          </div>
+
+
+
+			</div><!--/.row-->
+			<!--/row-->
+
+		</div>
+		<!-- end: Content -->
+		<br><br><br>
+
+
+
+
+	</div><!--/container-->
+
+
+
+	<!-- start: JavaScript-->
+	<script src="__ROOT__/Public/back/assets/js/jquery-2.1.1.min.js"></script>
+
+<script type="text/javascript">
+      window.jQuery || document.write("<script src='__ROOT__/Public/back/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+</script>
+
+
+
+  <!-- theme scripts -->
+  <script src="__ROOT__/Public/back/assets/js/SmoothScroll.js"></script>
+  <script src="__ROOT__/Public/back/assets/js/jquery.mmenu.min.js"></script>
+  <script src="__ROOT__/Public/back/assets/js/core.min.js"></script>
+
+	<!-- end: JavaScript-->
+<script type="text/javascript">
+
+$(document).ready(function(){
+　　
+  // demo
+  $("#edui1_bottombar").hide();
+
+
+});
+
+</script>
+
+</body>
+</html>
+

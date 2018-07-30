@@ -1,0 +1,15 @@
+.wx-index__nav .nav__swipe{
+    height: auto;
+    padding-bottom: 17px;
+}
+.category-ico-pannel{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+}
+.wx-index__nav .page__list .page__item .avatar__img{
+    border-radius: 0;
+}
